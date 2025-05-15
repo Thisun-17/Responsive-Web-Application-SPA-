@@ -1,15 +1,177 @@
+/* App Container */
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Header Styling */
+.site-header {
+  background: linear-gradient(135deg, #1e3c72, #2a5298, #3c6382);
+  color: white;
+  padding: 20px 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.header-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.logo-container {
+  margin-right: 20px;
+}
+
+.logo-container a {
+  text-decoration: none;
+  color: white;
+  display: block;
+}
+
+.site-title {
+  font-size: 2.2rem;
+  margin: 0;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.site-tagline {
+  margin: 5px 0 0;
+  font-size: 1rem;
+  font-style: italic;
+  opacity: 0.9;
+}
+
+.main-nav ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.main-nav li {
+  margin-left: 25px;
+}
+
+.main-nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+
+.main-nav a:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #B2DFDB;
+}
+
+/* Media queries for responsive header */
+@media (max-width: 768px) {
+  .header-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .logo-container {
+    margin-right: 0;
+    margin-bottom: 15px;
+  }
+  
+  .main-nav ul {
+    justify-content: center;
+  }
+  
+  .main-nav li:first-child {
+    margin-left: 0;
+  }
+}
+
+/* Welcome Banner Styling */
+.welcome-banner {
+  background: linear-gradient(rgba(30, 60, 114, 0.7), rgba(42, 82, 152, 0.7)), url('../images/house1.jpg');
+  background-size: cover;
+  background-position: center;
+  color: white;
+  padding: 60px 20px;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.welcome-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.welcome-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.welcome-content p {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.section-title {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: #333;
+  text-align: center;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.section-title:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, #1e3c72, #4a69bd);
+}
+
+/* Page container styling */
+.page-container {
+  padding: 0;
+}
+
 /* Center the form and give it a clean layout */
 form {
-    margin: 50px auto;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: #f9f9f9;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 400px;
-    margin-bottom: 30px;
-  }
+  margin: 30px auto;
+  padding: 25px;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  background-color: #ffffff;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px;
+  margin-bottom: 30px;
+  transition: transform 0.3s ease;
+}
+
+form:hover {
+  transform: translateY(-5px);
+}
   
   /* Style the labels */
   label {
@@ -31,24 +193,52 @@ form {
     font-size: 14px;
     box-sizing: border-box;
   }
-  
-  /* Add focus styles to inputs for better accessibility */
-  input:focus,
+    /* Add focus styles to inputs for better accessibility */  input:focus,
   select:focus {
     outline: none;
-    border-color: #007bff;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    border-color: #3c6382;
+    box-shadow: 0 0 5px rgba(60, 99, 130, 0.5);
   }
-  
-  /* Style the submit button */
-  button {
+    /* Style the submit button */  button {
     width: 100%;
-    padding: 10px;
-    background-color: #007bff;
+    padding: 12px 15px;
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
     color: white;
     border: none;
-    border-radius: 4px;
+    border-radius: 6px;
     font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+    button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    background: linear-gradient(135deg, #0c2461, #1e3799);
+  }
+  
+  /* No results and no favorites sections */
+  .no-results,
+  .no-favorites {
+    text-align: center;
+    padding: 30px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    margin: 20px 0;
+  }
+  
+  .no-results p,
+  .no-favorites p {
+    font-size: 1.1rem;
+    color: #555;
+    margin-bottom: 15px;
+  }
+  
+  .back-button {
+    max-width: 260px;
+    margin: 15px auto 0;
     cursor: pointer;
   }
   
@@ -212,7 +402,7 @@ form {
   border-radius: 8px;
 }
 .property-card button {
-  background-color: #007bff;
+  background-color: #00796B;
   color: white;
   border: none;
   border-radius: 5px;
@@ -222,13 +412,13 @@ form {
 }
 
 .property-card button:hover {
-  background-color: #0056b3;
+  background-color: #004D40;
 }
 
 
 /* Link to view details */
 .details-link {
-  color: #007bff;
+  color: #00796B;
   text-decoration: none;
   font-weight: bold;
   font-size: 14px;
@@ -383,6 +573,53 @@ form {
     text-align: center;
     font-size: 1.5rem;
   }
+}
+
+/* Sterling Estates Custom Styling */
+.available-properties,
+.search-results,
+.favorites-section {
+  padding: 30px 20px;
+  margin-bottom: 50px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.property-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 25px;
+  margin-top: 25px;
+}
+
+.property-card {
+  border: none;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s ease;
+}
+
+.property-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+}
+
+.property-image {
+  height: 180px;
+  object-fit: cover;
+}
+
+.property-card .property-title {
+  font-size: 1.3rem;
+  color: #00796B;
+  font-weight: 700;
+}
+
+.property-card p {
+  color: #555;
+  line-height: 1.5;
 }
 
 
