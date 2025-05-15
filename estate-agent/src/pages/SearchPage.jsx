@@ -34,30 +34,35 @@ const SearchPage = () => {
     setSearchResults(filteredResults);
     setShowSearchResults(true); // Show the search results section
   };
-
   return (
     <div className="page-container">
+      {/* Welcome Banner */}      <section className="welcome-banner">
+        <div className="welcome-content">
+          <h2>Find Your Dream Home with Prestige Estates</h2>
+          <p>Discover exceptional properties tailored to your discerning taste and lifestyle</p>
+        </div>
+      </section>
+      
       {/* Search Form Section */}
       <section className="form-section">
+        <h3 className="section-title">Search Properties</h3>
         <SearchForm onSearch={handleSearch} />
       </section>
 
       {/* Available Properties Section */}
       {!showSearchResults && (
         <section className="available-properties">
-          <h1>Available Properties</h1>
+          <h3 className="section-title">Featured Properties</h3>
           <ResultsList
             properties={properties}
             onAddToFavorites={addToFavorites}
             favorites={favorites}
           />
         </section>
-      )}
-
-      {/* Search Results Section */}
+      )}      {/* Search Results Section */}
       {showSearchResults && (
         <section className="search-results">
-          <h1>Search Results</h1>
+          <h3 className="section-title">Search Results</h3>
           {searchResults.length > 0 ? (
             <ResultsList
               properties={searchResults}
@@ -65,20 +70,28 @@ const SearchPage = () => {
               favorites={favorites}
             />
           ) : (
-            <p>No properties match your search criteria.</p>
+            <div className="no-results">
+              <p>No properties match your search criteria.</p>
+              <button className="back-button" onClick={() => setShowSearchResults(false)}>
+                Return to Featured Properties
+              </button>
+            </div>
           )}
         </section>
-      )}
-
-      {/* Favorites Section */}
+      )}      {/* Favorites Section */}
       <section className="favorites-section">
-        <h1>Favorites</h1>
-        <ResultsList
-          properties={favorites}
-          onRemoveFromFavorites={removeFromFavorites}
-          favorites={favorites}
-          isFavorites={true}
-        />
+        <h3 className="section-title">Your Favorites</h3>
+        {favorites.length > 0 ? (
+          <ResultsList
+            properties={favorites}
+            onRemoveFromFavorites={removeFromFavorites}
+            favorites={favorites}
+            isFavorites={true}
+          />        ) : (
+          <div className="no-favorites">
+            <p>You haven&apos;t added any properties to your favorites yet.</p>
+            <p>Browse our listings and click the heart icon to save properties you love.</p>          </div>
+        )}
       </section>
     </div>
   );
